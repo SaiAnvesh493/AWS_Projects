@@ -1,0 +1,55 @@
+Objective
+To create and host a static website using an Amazon S3 bucket.
+
+Prerequisites
+AWS account with necessary permissions to create and manage S3 buckets.
+Static website files (HTML, CSS, JavaScript, images, etc.).
+Tools Required
+AWS Management Console
+Text Editor (Optional for editing HTML/CSS/JS files)
+Procedure
+1. Login to AWS Management Console
+1.1. Open your web browser and go to the AWS Management Console.
+1.2. Log in with your AWS credentials.
+
+2. Create an S3 Bucket
+2.1. In the AWS Management Console, navigate to S3 by searching for “S3” in the services search bar.
+2.2. Click on Create bucket.
+2.3. Enter a unique bucket name. Ensure the name is globally unique and doesn’t contain uppercase letters or spaces.
+2.4. Select a region close to your audience for better performance.
+2.5. For Object Ownership, choose ACLs disabled (recommended).
+2.6. Block all public access should be unchecked. Acknowledge that you want to allow public access (necessary for a public website).
+2.7. Keep the remaining settings at their default values and click Create bucket.
+
+3. Configure Bucket for Static Website Hosting
+3.1. Go to the Properties tab of your newly created bucket.
+3.2. Scroll down to the Static website hosting section and click Edit.
+3.3. Select Enable for static website hosting.
+3.4. In the Hosting type dropdown, select Host a static website.
+3.5. Enter the name of your index document (e.g., index.html).
+3.6. Optionally, specify a custom error document (e.g., error.html).
+3.7. Save changes.
+
+4. Upload Your Website Files
+4.1. Navigate to the Objects tab of your bucket.
+4.2. Click on Upload.
+4.3. Drag and drop your website files (HTML, CSS, JS, images) into the upload area or click Add files to browse and select files.
+4.4. Ensure that all your files are uploaded to the root directory (unless you're using subdirectories).
+4.5. Click Upload.
+
+5. Set Bucket Policy to Allow Public Access If requred else skip to step 6
+5.1. Navigate to the Permissions tab of your bucket.
+5.2. Scroll down to Bucket Policy and click Edit.
+5.3. Copy and paste the following JSON policy, replacing YOUR_BUCKET_NAME with your actual bucket name:
+5.4. Click Save changes.
+
+6. Access Your Static Website
+6.1. Navigate to the Properties tab of your bucket.
+6.2. In the Static website hosting section, note down the Bucket website endpoint URL.
+6.3. Open this URL in your web browser to access your static website.
+
+7. (Optional) Enable Custom Domain
+7.1. If you want to use a custom domain, go to Route 53 or your domain registrar’s settings.
+7.2. Create a new CNAME record pointing your domain or subdomain to the S3 Bucket website endpoint.
+7.3. Configure SSL/TLS with AWS Certificate Manager (ACM) if using HTTPS.
+
